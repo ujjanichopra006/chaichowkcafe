@@ -72,7 +72,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative overflow-hidden bg-[#160904] text-white">
+    <footer className="relative overflow-hidden bg-orange-100/80  text-white">
 
 
       {/* Main Footer */}
@@ -90,7 +90,7 @@ export default function Footer() {
             >
               <div className="flex h-10 w-10 items-center justify-center">
                 <Image
-                  src="/chai-chai.png"
+                  src="/logo.png"
                   alt="TeaHub"
                   width={40}
                   height={40}
@@ -99,17 +99,17 @@ export default function Footer() {
               </div>
 
               <div>
-                <h2 className="text-xl font-extrabold tracking-tight">
-                 Chaichowk<span className="text-orange-500">cafe</span>
+                <h2 className="text-xl text-black font-extrabold tracking-tight ">
+                 Chaichowk<span className="text-orange-800">cafe</span>
                 </h2>
 
-                <p className="text-[8px] font-bold uppercase tracking-[0.2em] text-orange-400">
+                <p className="text-[8px] font-bold uppercase tracking-[0.2em] text-black">
                   Delicious & Fresh
                 </p>
               </div>
             </Link>
 
-            <p className="mt-5 max-w-xs text-[11px] leading-5 text-gray-300">
+            <p className="mt-5 max-w-xs text-[11px] leading-5 text-gray-900">
               Enjoy the perfect blend of freshly brewed chai and
               delicious snacks. Made with love, served with passion.
             </p>
@@ -120,7 +120,7 @@ export default function Footer() {
               <a
                 href="#"
                 aria-label="Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-orange-500/70 text-orange-400 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-500 hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-orange-800/70 text-orange-900 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-900 hover:text-white"
               >
                 <FaInstagram size={15} />
               </a>
@@ -128,7 +128,7 @@ export default function Footer() {
               <a
                 href="#"
                 aria-label="Facebook"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-orange-500/70 text-orange-400 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-500 hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-orange-800/70 text-orange-900 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-900 hover:text-white"
               >
                 <FaFacebookF size={15} />
               </a>
@@ -136,7 +136,7 @@ export default function Footer() {
               <a
                 href="#"
                 aria-label="YouTube"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-orange-500/70 text-orange-400 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-500 hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-orange-800/70 text-orange-900 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-900 hover:text-white"
               >
                 <FaYoutube size={15} />
               </a>
@@ -144,7 +144,7 @@ export default function Footer() {
               <a
                 href="#"
                 aria-label="WhatsApp"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-orange-500/70 text-orange-400 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-500 hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-orange-800/70 text-orange-900 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-900 hover:text-white"
               >
                 <FaWhatsapp size={15} />
               </a>
@@ -155,10 +155,10 @@ export default function Footer() {
           {/* ================= EXPLORE ================= */}
 
           <div>
-            <h3 className="relative mb-5 inline-block text-[11px] font-extrabold uppercase tracking-[0.15em] text-orange-400">
+            <h3 className="relative mb-5 inline-block text-[11px] font-extrabold uppercase tracking-[0.15em] text-orange-800">
               Explore
 
-              <span className="absolute -bottom-2.5 left-0 h-[2px] w-8 bg-orange-500" />
+              <span className="absolute -bottom-2.5 left-0 h-[2px] w-8 bg-orange-900" />
             </h3>
 
             <ul className="space-y-2.5">
@@ -166,13 +166,8 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="group flex items-center gap-1.5 text-[11px] text-gray-300 transition-colors duration-200 hover:text-white"
+                    className="group flex items-center gap-1.5 text-[11px] text-gray-900 transition-colors duration-200"
                   >
-                    <ArrowRight
-                      size={12}
-                      className="text-orange-500 transition-transform duration-200 group-hover:translate-x-1"
-                    />
-
                     <span>{link.name}</span>
                   </Link>
                 </li>
@@ -183,10 +178,10 @@ export default function Footer() {
           {/* ================= INFORMATION ================= */}
 
           <div>
-            <h3 className="relative mb-5 inline-block text-[11px] font-extrabold uppercase tracking-[0.15em] text-orange-400">
+            <h3 className="relative mb-5 inline-block text-[11px] font-extrabold uppercase tracking-[0.15em] text-orange-800">
               Information
 
-              <span className="absolute -bottom-2.5 left-0 h-[2px] w-8 bg-orange-500" />
+              <span className="absolute -bottom-2.5 left-0 h-[2px] w-8 bg-orange-900" />
             </h3>
 
             <ul className="space-y-2.5">
@@ -197,11 +192,11 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="group flex items-center gap-2 text-[11px] text-gray-300 transition-colors duration-200 hover:text-white"
+                      className="group flex items-center gap-2 text-[11px] text-gray-900 transition-colors duration-200 "
                     >
                       <Icon
                         size={13}
-                        className="text-orange-500 transition-transform duration-200 group-hover:scale-110"
+                        className="text-orange-900 transition-transform duration-200 group-hover:scale-110"
                       />
 
                       <span>{link.name}</span>
@@ -215,21 +210,21 @@ export default function Footer() {
           {/* ================= CONTACT ================= */}
 
           <div>
-            <h3 className="relative mb-5 inline-block text-[11px] font-extrabold uppercase tracking-[0.15em] text-orange-400">
+            <h3 className="relative mb-5 inline-block text-[11px] font-extrabold uppercase tracking-[0.15em] text-orange-800">
               Contact Us
 
-              <span className="absolute -bottom-2.5 left-0 h-[2px] w-8 bg-orange-500" />
+              <span className="absolute -bottom-2.5 left-0 h-[2px] w-8 bg-orange-900" />
             </h3>
 
             <div className="space-y-3.5">
 
               {/* Address */}
               <div className="flex gap-2.5">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-orange-500/70 text-orange-400">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-orange-800/70 text-orange-900">
                   <MapPin size={13} />
                 </div>
 
-                <p className="text-[11px] leading-4 text-gray-300">
+                <p className="text-[11px] leading-4 text-gray-900">
                 Ratiya road near pnb bank.
                   <br />
                   M.m. college fatehabad
@@ -238,13 +233,13 @@ export default function Footer() {
 
               {/* Phone */}
               <div className="flex gap-2.5">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-orange-500/70 text-orange-400">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-orange-800/70 text-orange-900">
                   <Phone size={13} />
                 </div>
 
                 <a
                   href="tel:+919876543210"
-                  className="self-center text-[11px] text-gray-300 transition hover:text-white"
+                  className="self-center text-[11px] text-gray-900 transition"
                 >
                   +91 9253779999
                 </a>
@@ -252,13 +247,13 @@ export default function Footer() {
 
               {/* Email */}
               <div className="flex gap-2.5">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-orange-500/70 text-orange-400">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-orange-800/70 text-orange-900">
                   <Mail size={13} />
                 </div>
 
                 <a
                   href="mailto:hello@teahub.com"
-                  className="self-center text-[11px] text-gray-300 transition hover:text-white"
+                  className="self-center text-[11px] text-gray-900 transition"
                 >
                  C3chaichowkcafe@gmail.com
                 </a>
@@ -266,11 +261,11 @@ export default function Footer() {
 
               {/* Timing */}
               <div className="flex gap-2.5">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-orange-500/70 text-orange-400">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-orange-800/70 text-orange-900">
                   <Clock3 size={13} />
                 </div>
 
-                <div className="text-[11px] leading-4 text-gray-300">
+                <div className="text-[11px] leading-4 text-gray-900">
                   <p>Mon - Sun</p>
                   <p>10:00 AM - 11:00 PM</p>
                 </div>
@@ -281,29 +276,29 @@ export default function Footer() {
 
           {/* ================= CTA ================= */}
 
-          <div className="rounded-2xl border border-orange-500/60 bg-[#1e0b05] p-4 shadow-[0_0_35px_rgba(249,115,22,0.08)]">
+          <div className="rounded-2xl border border-orange-800/60 bg-orange-100/10  p-4 shadow-[0_0_35px_rgba(249,115,22,0.08)]">
 
             <div className="mb-3 flex justify-center">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-orange-500/50 text-orange-400">
+              <div className="flex h-8 w-10 items-center justify-center rounded-full border border-orange-900/50 text-orange-900">
                 <Coffee size={29} strokeWidth={1.4} />
               </div>
             </div>
 
-            <h3 className="text-center text-lg font-extrabold leading-tight">
+            <h3 className="text-center text-black text-lg font-extrabold leading-tight">
               Craving chai
               <br />
-              <span className="text-orange-500">
+              <span className="text-orange-800">
                 & snacks?
               </span>
             </h3>
 
-            <p className="mt-2.5 text-center text-[11px] leading-4 text-gray-300">
+            <p className="mt-2.5 text-center text-[11px] leading-4 text-gray-900">
               Order your favorite chai and snacks online now.
             </p>
 
             <Link
               href="/menu"
-              className="mt-4 flex items-center justify-center gap-2 rounded-full bg-orange-500 px-4 py-2.5 font-bold text-white shadow-lg shadow-orange-950/50 transition-all duration-300 hover:bg-orange-400"
+              className="mt-4 flex items-center justify-center gap-2 rounded-full bg-orange-900 px-4 py-2.5 font-bold text-white shadow-lg shadow-orange-950/50 transition-all duration-300 hover:bg-orange-400"
             >
               MENU
               <ArrowRight size={14} />
@@ -318,15 +313,15 @@ export default function Footer() {
 
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
 
-            <p className="text-center text-[10px] text-gray-400 md:text-left">
+            <p className="text-center text-[10px] text-gray-900 md:text-left">
               © 2026 Chaichowkcafe. All Rights Reserved.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-2 text-[10px] text-gray-400">
+            <div className="flex flex-wrap items-center justify-center gap-2 text-[10px] text-gray-900">
 
               <Link
                 href="/privacy"
-                className="transition hover:text-white"
+                className="transition "
               >
                 Privacy Policy
               </Link>
@@ -335,7 +330,7 @@ export default function Footer() {
 
               <Link
                 href="/terms"
-                className="transition hover:text-white"
+                className="transition "
               >
                 Terms & Conditions
               </Link>
@@ -344,7 +339,7 @@ export default function Footer() {
 
               <Link
                 href="/sitemap"
-                className="transition hover:text-white"
+                className="transition"
               >
                 Sitemap
               </Link>

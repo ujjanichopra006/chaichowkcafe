@@ -24,7 +24,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-orange-300 bg-white/95 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full bg-orange-100/80  backdrop-blur-md">
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
 
         {/* Logo */}
@@ -36,7 +36,7 @@ export default function Navbar() {
             <div className="flex items-center gap-2">
 
               <Image
-                src="/chai-chai.png"
+                src="/logo.png"
                 alt="chai logo"
                 width={45}
                 height={45}
