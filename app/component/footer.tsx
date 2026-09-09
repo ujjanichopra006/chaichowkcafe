@@ -51,7 +51,7 @@ export default function Footer() {
     },
     {
       name: "FAQs",
-      href: "/faq",
+      href: "/FAQ",
       icon: Info,
     },
     {

@@ -23,7 +23,7 @@ const foods = [
         right: [
             {
                 title: "Amazing Staff",
-                text: "Friendly faces and warm service make every TeaHub visit feel welcoming.",
+                text: "Friendly faces and warm service make every chaichowkcafe visit feel welcoming.",
             },
             {
                 title: "Cozy Ambience",
@@ -210,7 +210,7 @@ export default function FoodShowcase() {
     useEffect(() => {
         const timer = setInterval(() => {
             setActiveIndex((current) => (current + 1) % foods.length);
-        }, 2000);
+        }, 5000);
 
         return () => clearInterval(timer);
     }, []);
@@ -280,7 +280,7 @@ export default function FoodShowcase() {
           <div className="absolute inset-x-0 bottom-8 text-center">
 
             <p className="mb-2 text-sm uppercase tracking-[0.3em] text-orange-300">
-              TeaHub
+              chaichowkcafe
             </p>
 
             <h3 className="text-3xl font-bold sm:text-4xl">

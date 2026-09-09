@@ -26,9 +26,9 @@ export default function Home() {
 
                         {/* Main Heading */}
                         <h1 className="mb-5 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-                            Feels Like Chai.
+                            Feels Like Chai, 
                             <span className="text-orange-400">
-                                Feels Like Home.
+                                 Feels Like Home.
                             </span>
                         </h1>
 

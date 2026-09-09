@@ -20,7 +20,7 @@ export default function Navbar() {
     { name: "Franchise", href: "/franchise" },
     { name: "Menu", href: "/menu" },
     { name: "Contact", href: "/contact" },
-    { name: "Gallery", href: "/gellery" }
+    { name: "Gallery", href: "/gallery" }
   ];
 
   return (
@@ -66,26 +66,6 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Desktop Actions */}
-        <div className="hidden items-center gap-3 md:flex">
-
-          {/* Search */}
-          <button
-            aria-label="Search"
-            className="flex h-10 w-10 items-center justify-center rounded-full text-gray-600 transition hover:bg-orange-50 hover:text-orange-500"
-          >
-            <Search size={20} />
-          </button>
-
-          {/* CTA */}
-          <Link
-            href="/popup"
-            className="ml-2 rounded-full bg-orange-800 px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-orange-200 transition-all duration-200 hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-200"
-          >
-           SignIn
-          </Link>
-        </div>
-
         {/* Mobile Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -111,15 +91,6 @@ export default function Navbar() {
               </Link>
             ))}
 
-            <div className="my-3 h-px bg-gray-100" />
-
-            <Link
-              href="/popup"
-              onClick={() => setIsOpen(false)}
-              className="rounded-full bg-orange-800 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-orange-500"
-            >
-              SignIn
-            </Link>
           </div>
         </div>
       )}
