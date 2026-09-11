@@ -34,36 +34,22 @@ export default function Footer() {
     { name: "About Us", href: "/about" },
     { name: "Franchise", href: "/franchise" },
     { name: "Gallery", href: "/gallery" },
-    { name: "Locations", href: "/locations" },
     { name: "Contact Us", href: "/contact" },
   ];
 
   const informationLinks = [
     {
       name: "Privacy Policy",
-      href: "/privacy",
+      href: "/privacy_policy",
       icon: ShieldCheck,
     },
-    {
-      name: "Terms & Conditions",
-      href: "/terms",
-      icon: ShieldCheck,
-    },
+   
     {
       name: "FAQs",
       href: "/FAQ",
       icon: Info,
     },
-    {
-      name: "Careers",
-      href: "/careers",
-      icon: BriefcaseBusiness,
-    },
-    {
-      name: "Blog",
-      href: "/blog",
-      icon: FileText,
-    },
+   
     {
       name: "Feedback",
       href: "/feedback",

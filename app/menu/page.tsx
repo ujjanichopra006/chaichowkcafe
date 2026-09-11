@@ -863,11 +863,10 @@ export default function MenuPage() {
         <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-5 pb-1 md:px-8">
           <button
             onClick={() => setActiveCategory("All")}
-            className={`whitespace-nowrap rounded-full border px-5 py-2.5 text-sm font-bold transition ${
-              activeCategory === "All"
+            className={`whitespace-nowrap rounded-full border px-5 py-2.5 text-sm font-bold transition ${activeCategory === "All"
                 ? "border-[#f45112] bg-[#f45112] text-white shadow-md"
                 : "border-orange-200 bg-white text-[#5b6573] hover:border-orange-400 hover:text-[#f45112]"
-            }`}
+              }`}
           >
             ALL
           </button>
@@ -876,11 +875,10 @@ export default function MenuPage() {
             <button
               key={category.name}
               onClick={() => scrollToCategory(category.name)}
-              className={`flex items-center gap-2 whitespace-nowrap rounded-full border px-5 py-2.5 text-sm font-bold transition ${
-                activeCategory === category.name
+              className={`flex items-center gap-2 whitespace-nowrap rounded-full border px-5 py-2.5 text-sm font-bold transition ${activeCategory === category.name
                   ? "border-[#f45112] bg-[#f45112] text-white shadow-md"
                   : "border-orange-200 bg-white text-[#5b6573] hover:border-orange-400 hover:text-[#f45112]"
-              }`}
+                }`}
             >
               {category.icon}
               {category.name}
@@ -994,64 +992,265 @@ export default function MenuPage() {
         </section>
       )}
 
-      {/* DELIVERY CTA */}
-      <section className="border-y border-orange-200 bg-[#2c211c]">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-5 py-8 md:flex-row md:px-8">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-widest text-orange-300">
-              Freshly made for you
-            </p>
+      {/* =========================================================
+          SPECIAL OFFERS
+      ========================================================= */}
+      <section className="border-t border-orange-100 bg-[#fffaf3] py-10 md:py-10">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
 
-            <h2 className="mt-1 text-3xl font-black text-white">
-              FREE <span className="text-orange-400">DELIVERY</span>
+          {/* HEADING */}
+          <div className="mx-auto mb-10 max-w-2xl text-center">
+            <span className="inline-flex rounded-full border border-orange-200 bg-white px-4 py-2 text-xs font-bold tracking-[0.18em] text-[#f45112] shadow-sm">
+              ✨ SPECIAL OFFERS
+            </span>
+
+            <h2 className="mt-4 text-3xl font-black tracking-tight text-[#35170e] md:text-5xl">
+              Great Food.{" "}
+              <span className="text-[#f45112]">Better Deals.</span>
             </h2>
 
-            <p className="mt-1 text-sm text-white/70">
-              Enjoy your favourite food from Chai Chowk Cafe.
+            <p className="mt-3 text-sm leading-6 text-[#6b625d] md:text-base">
+              Grab your favourite pizza and enjoy our special offers at
+              Chai Chowk Cafe.
             </p>
           </div>
 
-          <a
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-[#f45112] px-7 py-3.5 text-sm font-black text-white shadow-lg transition hover:bg-orange-600"
-          >
-            CONTACT US
-            <ChevronRight size={18} />
-          </a>
+          {/* =====================================================
+              OFFER CARDS
+          ===================================================== */}
+          <div className="grid gap-6 md:grid-cols-2">
+
+            {/* ================= EVERYDAY OFFER ================= */}
+            <div className="group relative overflow-hidden rounded-[28px] border border-orange-300 bg-orange-100 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:p-7">
+
+              <div className="relative">
+
+                {/* TOP */}
+                <div className="flex items-center justify-between gap-3">
+                  <span className="rounded-full bg-[#35170e] px-4 py-2 text-[11px] font-black tracking-wider text-white">
+                    EVERYDAY OFFER
+                  </span>
+
+                  <span className="rounded-full bg-[#f45112] px-3 py-2 text-[10px] font-black text-white shadow-md">
+                    BUY 1 GET 1
+                  </span>
+                </div>
+
+                {/* CONTENT */}
+                <div className="mt-7 flex items-center gap-5">
+
+                  {/* REAL PIZZA IMAGE */}
+                  <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-2xl bg-orange-50">
+                    <Image
+                      src="/margherita-pizza.png"
+                      alt="Pizza offer"
+                      fill
+                      className="object-contain p-2 transition duration-500 group-hover:scale-110"
+                      sizes="112px"
+                    />
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-black leading-tight text-[#35170e] md:text-2xl">
+                      Buy One Large Pizza
+                    </h3>
+
+                    <div className="my-3 h-1 w-12 rounded-full bg-[#f45112]" />
+
+                    <p className="text-sm leading-6 text-gray-600">
+                      Get{" "}
+                      <span className="font-black text-[#f45112]">
+                        1 Regular Pizza
+                      </span>{" "}
+                      absolutely free.
+                    </p>
+                  </div>
+
+                </div>
+
+                {/* BOTTOM */}
+                <div className="mt-7 flex items-center justify-between rounded-2xl bg-[#fff7ed] px-4 py-3">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-gray-500">
+                    Offer Available
+                  </span>
+
+                  <span className="text-sm font-black text-[#35170e]">
+                    Every Day
+                  </span>
+                </div>
+
+              </div>
+            </div>
+
+
+            {/* ================= WEDNESDAY & SUNDAY ================= */}
+            <div className="group relative overflow-hidden rounded-[28px] bg-[#6b3828] p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:p-5">
+
+
+              <div className="relative">
+
+                {/* TOP */}
+                <div className="flex items-center justify-between gap-3">
+                  <span className="rounded-full bg-white px-4 py-2 text-[11px] font-black tracking-wider text-[#35170e]">
+                    WEDNESDAY & SUNDAY
+                  </span>
+
+                  <span className="rounded-full bg-[#f45112] px-3 py-2 text-[10px] font-black text-white shadow-md">
+                    BUY 1 GET 1
+                  </span>
+                </div>
+
+                {/* CONTENT */}
+                <div className="mt-7 flex items-center gap-5">
+
+                  {/* REAL PIZZA IMAGE */}
+                  <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-2xl bg-white/10">
+                    <Image
+                      src="/margherita-pizza.png"
+                      alt="Medium pizza offer"
+                      fill
+                      className="object-contain p-2 transition duration-500 group-hover:scale-110"
+                      sizes="112px"
+                    />
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-black leading-tight text-white md:text-2xl">
+                      Buy One Medium Pizza
+                    </h3>
+
+                    <div className="my-3 h-1 w-12 rounded-full bg-[#f45112]" />
+
+                    <p className="text-sm leading-6 text-white/70">
+                      Get{" "}
+                      <span className="font-black text-orange-300">
+                        1 Medium Pizza
+                      </span>{" "}
+                      absolutely free.
+                    </p>
+                  </div>
+
+                </div>
+
+                {/* BOTTOM */}
+                <div className="mt-7 flex items-center justify-between rounded-2xl bg-white/10 px-4 py-3">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-white/50">
+                    Special Days
+                  </span>
+
+                  <span className="text-sm font-black text-orange-300">
+                    Wednesday & Sunday
+                  </span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+
+          {/* =====================================================
+              CAFE EXPERIENCE
+          ===================================================== */}
+          <div className="mt-6 overflow-hidden rounded-[32px] border border-orange-100 bg-orange-100 shadow-sm">
+
+            <div className="grid md:grid-cols-2">
+
+              {/* LEFT */}
+              <div className="p-4 md:p-6">
+
+                <span className="inline-flex rounded-full bg-orange-50 px-4 py-2 text-xs font-black tracking-[0.15em] text-[#f45112]">
+                  CHAI CHOWK CAFE
+                </span>
+
+                <h2 className="mt-5 text-3xl font-black leading-tight text-[#35170e] md:text-4xl">
+                  More Than Just{" "}
+                  <span className="text-[#f45112]">Chai</span>
+                </h2>
+
+                <p className="mt-4 text-sm leading-7 text-gray-600 md:text-base">
+                  A perfect place for delicious food, chai, celebrations and
+                  memorable moments with your loved ones.
+                </p>
+
+                {/* FEATURES */}
+                <div className="mt-8 grid grid-cols-2 gap-3">
+
+                  <div className=" relative overflow-hidden rounded-2xl border border-orange-300 bg-[#fffaf3] p-4">
+                    <div className="pr-16"> </div>
+                    <div className="text-2xl">🎉</div>
+                    <h3 className="mt-2 text-sm font-black text-[#35170e]">
+                      Party Hall
+                    </h3>
+                    <p className="mt-1 text-[11px] leading-4 text-gray-500">
+                      Perfect for celebrations
+                    </p>
+                  </div>
+
+                  <div className="absolute right-2 top-1/2 h-16 w-16 -translate-y-1/2 overflow-hidden rounded-xl">
+                  </div>
+
+                  <div className="rounded-2xl border border-orange-300 bg-[#fffaf3] p-4">
+                    <div className="text-2xl">🎂</div>
+                    <h3 className="mt-2 text-sm font-black text-[#35170e]">
+                      Birthday Party
+                    </h3>
+                    <p className="mt-1 text-[11px] leading-4 text-gray-500">
+                      Celebrate your special day
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl border border-orange-300 bg-[#fffaf3] p-4">
+                    <div className="text-2xl">🏢</div>
+                    <h3 className="mt-2 text-sm font-black text-[#35170e]">
+                      Office Events
+                    </h3>
+                    <p className="mt-1 text-[11px] leading-4 text-gray-500">
+                      Small events & gatherings
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl border border-orange-300 bg-[#fffaf3] p-4">
+                    <div className="text-2xl">🛵</div>
+                    <h3 className="mt-2 text-sm font-black text-[#35170e]">
+                      Free Delivery
+                    </h3>
+                    <p className="mt-1 text-[11px] leading-4 text-gray-500">
+                      Selected orders
+                    </p>
+                  </div>
+                  <div> 
+
+                  </div>
+                </div>
+
+         
+              
+              </div>
+
+
+              {/* RIGHT IMAGE */}
+              <div className="relative min-h-[360px] overflow-hidden bg-[#6b3828] ">
+
+                <Image
+                  src="/mixup.png"
+                  alt="Chai Chowk Cafe"
+                  fill
+                  className="object-contain transition duration-700 hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 45vw"
+                />
+
+                {/* Soft Overlay */}
+                <div className="absolute inset-0 bg-black/10" />
+
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* FOOTER INFO */}
-      <section className="bg-[#fff6e9]">
-        <div className="mx-auto grid max-w-7xl gap-6 px-5 py-8 text-center md:grid-cols-3 md:px-8 md:text-left">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-orange-500">
-              Visit Us
-            </p>
-            <p className="mt-2 font-semibold">
-              Near Punjab National Bank,
-              <br />
-              M.M. PG College, Ratia Road,
-              <br />
-              Fatehabad
-            </p>
-          </div>
-
-          <div className="text-center">
-            <p className="text-xs font-bold uppercase tracking-widest text-orange-500">
-              Contact
-            </p>
-            <p className="mt-2 font-semibold">+91-9253-77-9999</p>
-          </div>
-
-          <div className="text-center md:text-right">
-            <p className="text-xs font-bold uppercase tracking-widest text-orange-500">
-              Chai Chowk Cafe
-            </p>
-            <p className="mt-2 font-semibold">A Taste of Comfort ☕</p>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
