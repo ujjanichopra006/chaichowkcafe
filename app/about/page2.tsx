@@ -1,6 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const values = [
   {
@@ -34,6 +37,21 @@ const values = [
 ];
 
 export default function OurValues() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+      offset: 100,
+      easing: "ease-in-out",
+    });
+
+    AOS.refresh();
+
+    return () => {
+      AOS.refresh();
+    };
+  }, []);
+
   return (
     <section className="relative overflow-hidden px-4 py-12 sm:px-6 lg:px-8">
 
@@ -56,7 +74,10 @@ export default function OurValues() {
       {/* =====================================================
           HEADER
       ===================================================== */}
-      <div className="relative z-10 mx-auto max-w-4xl text-center">
+      <div
+        className="relative z-10 mx-auto max-w-4xl text-center"
+        data-aos="fade-up"
+      >
 
         {/* Small Heading */}
         <div className="mb-1 flex items-center justify-center gap-3">
@@ -102,10 +123,11 @@ export default function OurValues() {
       ===================================================== */}
       <div className="relative z-10 mx-auto mt-8 grid max-w-4xl gap-4 md:grid-cols-2">
 
-        {values.map((value) => (
-
+        {values.map((value, index) => (
           <div
             key={value.title}
+            data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+            data-aos-delay={index * 150}
             className={`
               group relative h-[215px] overflow-hidden
               rounded-2xl
@@ -179,7 +201,6 @@ export default function OurValues() {
             </div>
 
           </div>
-
         ))}
 
       </div>
@@ -187,7 +208,11 @@ export default function OurValues() {
       {/* =====================================================
           BOTTOM STATEMENT
       ===================================================== */}
-      <div className="relative z-10 mx-auto mt-7 flex max-w-3xl items-center justify-center gap-2 text-center">
+      <div
+        className="relative z-10 mx-auto mt-7 flex max-w-3xl items-center justify-center gap-2 text-center"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
 
         <span className="hidden h-px w-10 bg-[#e58b20] sm:block" />
 

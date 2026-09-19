@@ -43,13 +43,13 @@ export default function Footer() {
       href: "/privacy_policy",
       icon: ShieldCheck,
     },
-   
+
     {
       name: "FAQs",
       href: "/FAQ",
       icon: Info,
     },
-   
+
     {
       name: "Feedback",
       href: "/feedback",
@@ -65,11 +65,11 @@ export default function Footer() {
       <div className="relative mx-auto max-w-7xl px-6 pb-6 pt-12 sm:px-8 lg:px-10">
 
         {/* Main Grid */}
-        <div className="grid gap-8 lg:grid-cols-[1.25fr_1fr_1fr_1.2fr_1.1fr]">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.25fr_1fr_1fr_1.2fr_1.1fr]">
 
           {/* ================= BRAND ================= */}
 
-          <div>
+          <div className="sm:col-span-2 lg:col-span-1">
             <Link
               href="/"
               className="group inline-flex items-center gap-2.5"
@@ -86,7 +86,7 @@ export default function Footer() {
 
               <div>
                 <h2 className="text-xl text-black font-extrabold tracking-tight ">
-                 Chaichowk<span className="text-orange-800">cafe</span>
+                  Chaichowk<span className="text-orange-800">cafe</span>
                 </h2>
 
                 <p className="text-[8px] font-bold uppercase tracking-[0.2em] text-black">
@@ -104,7 +104,7 @@ export default function Footer() {
             <div className="mt-5 flex items-center gap-2.5">
 
               <a
-                href="#"
+                href="https://www.instagram.com/c3chaichowkcafe?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
                 aria-label="Instagram"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-orange-800/70 text-orange-900 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-900 hover:text-white"
               >
@@ -112,7 +112,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61579396418460"
                 aria-label="Facebook"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-orange-800/70 text-orange-900 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-900 hover:text-white"
               >
@@ -120,7 +120,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="#"
+                href="https://www.youtube.com/@C3ChaiChowkCafe"
                 aria-label="YouTube"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-orange-800/70 text-orange-900 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-900 hover:text-white"
               >
@@ -128,7 +128,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="#"
+                href="https://wa.me/message/4ZSZBI3J3HKXA1"
                 aria-label="WhatsApp"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-orange-800/70 text-orange-900 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-900 hover:text-white"
               >
@@ -140,7 +140,7 @@ export default function Footer() {
 
           {/* ================= EXPLORE ================= */}
 
-          <div>
+          <div className="lg:ml-20">
             <h3 className="relative mb-5 inline-block text-[11px] font-extrabold uppercase tracking-[0.15em] text-orange-800">
               Explore
 
@@ -211,7 +211,7 @@ export default function Footer() {
                 </div>
 
                 <p className="text-[11px] leading-4 text-gray-900">
-                Ratiya road near pnb bank.
+                  Ratiya road near pnb bank.
                   <br />
                   M.m. college fatehabad
                 </p>
@@ -241,7 +241,7 @@ export default function Footer() {
                   href="mailto:hello@teahub.com"
                   className="self-center text-[11px] text-gray-900 transition"
                 >
-                 C3chaichowkcafe@gmail.com
+                  C3chaichowkcafe@gmail.com
                 </a>
               </div>
 
@@ -260,36 +260,15 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ================= CTA ================= */}
-
-          <div className="rounded-2xl border border-orange-800/60 bg-orange-100/10  p-4 shadow-[0_0_35px_rgba(249,115,22,0.08)]">
-
-            <div className="mb-3 flex justify-center">
-              <div className="flex h-8 w-10 items-center justify-center rounded-full border border-orange-900/50 text-orange-900">
-                <Coffee size={29} strokeWidth={1.4} />
-              </div>
+          <div className="flex items-center justify-center">
+            <div className="relative h-[170px] w-[170px]">
+              <Image
+                src="/coffee-outlineing-2.png"
+                alt="Chai Chowk Cafe"
+                fill
+                className="object-contain"
+              />
             </div>
-
-            <h3 className="text-center text-black text-lg font-extrabold leading-tight">
-              Craving chai
-              <br />
-              <span className="text-orange-800">
-                & snacks?
-              </span>
-            </h3>
-
-            <p className="mt-2.5 text-center text-[11px] leading-4 text-gray-900">
-              Order your favorite chai and snacks online now.
-            </p>
-
-            <Link
-              href="/menu"
-              className="mt-4 flex items-center justify-center gap-2 rounded-full bg-orange-900 px-4 py-2.5 font-bold text-white shadow-lg shadow-orange-950/50 transition-all duration-300 hover:bg-orange-400"
-            >
-              MENU
-              <ArrowRight size={14} />
-            </Link>
-
           </div>
         </div>
 
@@ -303,39 +282,10 @@ export default function Footer() {
               © 2026 Chaichowkcafe. All Rights Reserved.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-2 text-[10px] text-gray-900">
-
-              <Link
-                href="/privacy"
-                className="transition "
-              >
-                Privacy Policy
-              </Link>
-
-              <span className="text-orange-500">|</span>
-
-              <Link
-                href="/terms"
-                className="transition "
-              >
-                Terms & Conditions
-              </Link>
-
-              <span className="text-orange-500">|</span>
-
-              <Link
-                href="/sitemap"
-                className="transition"
-              >
-                Sitemap
-              </Link>
-
-            </div>
-
           </div>
         </div>
 
       </div>
     </footer>
   );
-}
+} 

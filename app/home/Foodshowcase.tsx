@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const foods = [
     {
@@ -208,6 +210,11 @@ export default function FoodShowcase() {
     const activeFood = foods[activeIndex];
 
     useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: false,
+            offset: 100,
+        });
         const timer = setInterval(() => {
             setActiveIndex((current) => (current + 1) % foods.length);
         }, 5000);
@@ -222,14 +229,19 @@ export default function FoodShowcase() {
             {/* Heading */}
             <div className="mx-auto mb-9 max-w-4xl text-center">
                
-                <h2 className="text-3xl text-orange-600 font-bold sm:text-4xl lg:text-5xl">
+                <h2 
+                data-aos="fade-up"
+                className="text-3xl text-orange-600 font-bold sm:text-4xl lg:text-5xl">
                     Endless Flavours.{" "}
                     <span className="text-orange-400">
                         Endless Moments.
                     </span>
                 </h2>
 
-                <p className="mx-auto mt-4  max-w-xl text-sm leading-4 text-black sm:text-base">
+                <p 
+                data-aos="fade-up"
+                data-aos-delay="200"
+                className="mx-auto mt-4  max-w-xl text-sm leading-4 text-black sm:text-base">
                     From your favourite chai to delicious food and refreshing drinks,
                     there is always something new to enjoy at TeaHub.
                 </p>
@@ -238,14 +250,19 @@ export default function FoodShowcase() {
             {/* Main Showcase */}
            
       {/* Main Showcase */}
-      <div className="mx-auto grid max-w-5xl overflow-hidden rounded-[35px] border border-orange-900/50 bg-[#35170e] shadow-2xl lg:grid-cols-[1fr_1.15fr_1fr]">
+      <div
+      data-aos="fade-up"
+      data-aos-delay="300"
+      className="mx-auto grid max-w-5xl overflow-hidden rounded-[35px] border border-orange-900/50 bg-[#35170e] shadow-2xl lg:grid-cols-[1fr_1.15fr_1fr]">
 
         {/* LEFT CONTENT */}
-        <div className="flex flex-col justify-center gap-5 p-2 text-center sm:p-7 lg:p-6">
+        <div 
+        className="flex flex-col justify-center gap-5 p-2 text-center sm:p-7 lg:p-6">
 
           {activeFood.left.map((item, index) => (
-            <div key={item.title}>
-
+            <div 
+                 key={item.title}
+                 data-aos="fade-right">
               <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full border border-orange-500/40 bg-orange-500/10 text-lg">
                 {index === 0 ? "✦" : index === 1 ? "♥" : "☕"}
               </div>
@@ -295,7 +312,8 @@ export default function FoodShowcase() {
         <div className="flex flex-col justify-center gap-5 p-5 text-center sm:p-7 lg:p-8">
 
           {activeFood.right.map((item, index) => (
-            <div key={item.title}>
+            <div key={item.title}
+            data-aos="fade-left">
 
               <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full border border-orange-500/40 bg-orange-500/10 text-lg">
                 {index === 0 ? "★" : index === 1 ? "✓" : "♡"}

@@ -1,7 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import {
   Search,
   Coffee,
@@ -98,7 +101,7 @@ const categories: Category[] = [
         name: "Black Coffee",
         description: "Strong classic coffee",
         price: "₹30",
-        image: "/black-coffe.png",
+        image: "/black-coffee.png",
       },
       {
         name: "Hot Coffee",
@@ -177,7 +180,7 @@ const categories: Category[] = [
         name: "Brownie Shake",
         description: "Brownie loaded shake",
         price: "₹120",
-        image: "/browani.png",
+        image: "/brownie.png",
       },
       {
         name: "Fresh Lime Soda",
@@ -421,7 +424,7 @@ const categories: Category[] = [
         name: "C3 Spicy Loaded Pizza",
         description: "Spicy loaded special",
         price: "₹249 / ₹349 / ₹519",
-        image: "/c3-spicy-loaded-pizza.jpg",
+        image: "/c3-spicy-loaded-pizza.png",
       },
       {
         name: "Salsa Paneer Pizza",
@@ -455,7 +458,8 @@ const categories: Category[] = [
       },
       {
         name: "Hot Spicy Pizza",
-        description: "Onion, capsicum, tomato & mushroom,spicy Dip",
+        description:
+          "Onion, capsicum, tomato & mushroom, spicy Dip",
         price: "₹169 / ₹309 / ₹479",
         image: "/spicy-hot-pizza.jpg",
       },
@@ -533,7 +537,7 @@ const categories: Category[] = [
         image: "/hara-bhara-kabab.jpg",
       },
       {
-        name: " Fry Paneer Popcorn",
+        name: "Fry Paneer Popcorn",
         description: "Crispy paneer bites",
         price: "₹160",
         image: "/paneer-popcorn.jpg",
@@ -657,7 +661,7 @@ const categories: Category[] = [
         name: "Mix Sauce Pasta",
         description: "Red & white sauce together",
         price: "₹150",
-        image: "/mix-sauce-pasta.png",
+        image: "/mix-souce-pasta.png",
       },
     ],
   },
@@ -668,13 +672,13 @@ const categories: Category[] = [
     items: [
       {
         name: "Maska Bun",
-        description: "Crispy ,Maska Bun",
+        description: "Crispy, Maska Bun",
         price: "₹25",
         image: "/maska-bun.png",
       },
       {
-        name: " Garlic Bun",
-        description: "Garlic bunwith melted cheese",
+        name: "Garlic Bun",
+        description: "Garlic bun with melted cheese",
         price: "₹35",
         image: "/garlic-bread.png",
       },
@@ -760,13 +764,13 @@ const categories: Category[] = [
       },
       {
         name: "2 Chai + Maggi",
-        description: " Elaichi / Adrak with plain Maggi",
+        description: "Elaichi / Adrak with plain Maggi",
         price: "₹110",
         image: "/combo-maggi.png",
       },
       {
         name: "2 Chai + French Fries",
-        description: " Elaichi / Adrak with crispy fries",
+        description: "Elaichi / Adrak with crispy fries",
         price: "₹110",
         image: "/combo-fries.png",
       },
@@ -789,6 +793,30 @@ const categories: Category[] = [
 export default function MenuPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [search, setSearch] = useState("");
+
+  /* =========================================================
+     AOS INITIALIZATION
+  ========================================================= */
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+      offset: 100,
+      easing: "ease-in-out",
+    });
+
+    AOS.refresh();
+
+    const handleResize = () => {
+      AOS.refresh();
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const allItems = useMemo(
     () =>
@@ -837,90 +865,163 @@ export default function MenuPage() {
 
   return (
     <main className="min-h-screen bg-[#fffaf3] text-[#2b211c]">
-      {/* HERO */}
-      <section className="relative overflow-hidden border-b border-orange-100">
+
+      {/* =========================================================
+          HERO
+      ========================================================= */}
+      <section
+        data-aos="fade-up"
+        className="relative overflow-hidden border-b border-orange-100"
+      >
         <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-orange-100/60 blur-3xl" />
         <div className="absolute -right-20 top-10 h-72 w-72 rounded-full bg-yellow-100/70 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-5 pb-10 pt-20 text-center md:px-8">
-          <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white px-5 py-2 text-sm font-bold tracking-wide text-[#e94d0b] shadow-sm">
+
+          <span
+            data-aos="fade-down"
+            data-aos-delay="100"
+            className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white px-5 py-2 text-sm font-bold tracking-wide text-[#e94d0b] shadow-sm"
+          >
             ✨ A TASTE OF COMFORT
           </span>
 
-          <h1 className="mt-6 text-6xl font-black tracking-tight md:text-8xl">
+          <h1
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="mt-6 text-6xl font-black tracking-tight md:text-8xl"
+          >
             Our <span className="text-[#f45112]">Menu</span>
           </h1>
 
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#5b6573] md:text-lg">
+          <p
+            data-aos="fade-up"
+            data-aos-delay="300"
+            className="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#5b6573] md:text-lg"
+          >
             From steaming kulhad chai to delicious bites, pizzas and
             refreshing drinks — discover everything we love serving.
           </p>
+
         </div>
       </section>
 
-      {/* CATEGORY NAV */}
-      <div className="sticky top-0 z-30 border-b border-orange-100 bg-[#fffaf3]/95 py-4 backdrop-blur-md">
+      {/* =========================================================
+          CATEGORY NAV
+      ========================================================= */}
+      <div
+        data-aos="fade-down"
+        className="sticky top-0 z-30 border-b border-orange-100 bg-[#fffaf3]/95 py-4 backdrop-blur-md"
+      >
         <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-5 pb-1 md:px-8">
+
+          {/* ALL */}
           <button
             onClick={() => setActiveCategory("All")}
-            className={`whitespace-nowrap rounded-full border px-5 py-2.5 text-sm font-bold transition ${activeCategory === "All"
+            data-aos="fade-right"
+            className={`whitespace-nowrap rounded-full border px-5 py-2.5 text-sm font-bold transition ${
+              activeCategory === "All"
                 ? "border-[#f45112] bg-[#f45112] text-white shadow-md"
                 : "border-orange-200 bg-white text-[#5b6573] hover:border-orange-400 hover:text-[#f45112]"
-              }`}
+            }`}
           >
             ALL
           </button>
 
-          {categories.map((category) => (
+          {categories.map((category, index) => (
             <button
               key={category.name}
               onClick={() => scrollToCategory(category.name)}
-              className={`flex items-center gap-2 whitespace-nowrap rounded-full border px-5 py-2.5 text-sm font-bold transition ${activeCategory === category.name
+              data-aos="fade-right"
+              data-aos-delay={index * 80}
+              className={`flex items-center gap-2 whitespace-nowrap rounded-full border px-5 py-2.5 text-sm font-bold transition ${
+                activeCategory === category.name
                   ? "border-[#f45112] bg-[#f45112] text-white shadow-md"
                   : "border-orange-200 bg-white text-[#5b6573] hover:border-orange-400 hover:text-[#f45112]"
-                }`}
+              }`}
             >
               {category.icon}
               {category.name}
             </button>
           ))}
+
         </div>
       </div>
 
-      {/* MAIN CONTENT */}
+      {/* =========================================================
+          MAIN CONTENT
+      ========================================================= */}
       {search.trim() ? (
-        /* SEARCH RESULTS */
-        <section className="mx-auto max-w-7xl px-5 py-12 md:px-8">
-          <div className="mb-7">
-            <h2 className="text-3xl font-black">Search Results</h2>
+
+        /* =====================================================
+           SEARCH RESULTS
+        ===================================================== */
+        <section
+          data-aos="fade-up"
+          className="mx-auto max-w-7xl px-5 py-12 md:px-8"
+        >
+          <div
+            data-aos="fade-right"
+            className="mb-7"
+          >
+            <h2 className="text-3xl font-black">
+              Search Results
+            </h2>
+
             <p className="mt-1 text-sm text-gray-500">
               {filteredItems.length} items found
             </p>
           </div>
 
           {filteredItems.length === 0 ? (
-            <div className="rounded-3xl border border-orange-100 bg-white p-16 text-center">
+
+            <div
+              data-aos="zoom-in"
+              className="rounded-3xl border border-orange-100 bg-white p-16 text-center"
+            >
               <div className="text-5xl">🍽️</div>
-              <h3 className="mt-4 text-xl font-bold">No food found</h3>
-              <p className="mt-2 text-gray-500">Try searching another item.</p>
+
+              <h3 className="mt-4 text-xl font-bold">
+                No food found
+              </h3>
+
+              <p className="mt-2 text-gray-500">
+                Try searching another item.
+              </p>
             </div>
+
           ) : (
-            <FoodGrid items={filteredItems} />
+            <div data-aos="fade-up">
+              <FoodGrid items={filteredItems} />
+            </div>
           )}
         </section>
+
       ) : activeCategory === "All" ? (
-        /* ALL CATEGORIES VIEW */
+
+        /* =====================================================
+           ALL CATEGORIES VIEW
+        ===================================================== */
         <div className="mx-auto max-w-7xl px-5 py-12 md:px-8">
-          {categories.map((category) => (
+
+          {categories.map((category, categoryIndex) => (
             <section
               key={category.name}
               id={category.name.replace(/[^a-zA-Z0-9]/g, "-")}
+              data-aos="fade-up"
+              data-aos-delay={categoryIndex * 100}
               className="mb-10 scroll-mt-24"
             >
+
               {/* CATEGORY HEADER */}
-              <div className="mb-5 flex items-end justify-between gap-4">
+              <div
+                data-aos="fade-right"
+                className="mb-5 flex items-end justify-between gap-4"
+              >
                 <div>
+
                   <div className="flex items-center gap-3">
+
                     <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-100 text-[#f45112]">
                       {category.icon}
                     </div>
@@ -934,7 +1035,9 @@ export default function MenuPage() {
                         Fresh, delicious & made with love
                       </p>
                     </div>
+
                   </div>
+
                 </div>
 
                 <button
@@ -944,16 +1047,27 @@ export default function MenuPage() {
                   View All
                   <ChevronRight size={16} />
                 </button>
+
               </div>
 
-              <FoodGrid
-                items={category.items.slice(0, 6)}
-              />
+              {/* FOOD GRID */}
+              <div data-aos="fade-up" data-aos-delay="150">
+                <FoodGrid
+                  items={category.items.slice(0, 6)}
+                />
+              </div>
 
+              {/* VIEW FULL MENU */}
               {category.items.length > 6 && (
-                <div className="mt-5 text-center">
+                <div
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                  className="mt-5 text-center"
+                >
                   <button
-                    onClick={() => setActiveCategory(category.name)}
+                    onClick={() =>
+                      setActiveCategory(category.name)
+                    }
                     className="inline-flex items-center gap-2 rounded-full border border-orange-300 bg-white px-6 py-3 text-sm font-bold text-[#f45112] shadow-sm transition hover:bg-orange-50"
                   >
                     View Full {category.name} Menu
@@ -961,72 +1075,120 @@ export default function MenuPage() {
                   </button>
                 </div>
               )}
+
             </section>
           ))}
+
         </div>
+
       ) : (
-        /* SINGLE CATEGORY VIEW (shows all items of the selected category) */
-        <section className="mx-auto max-w-7xl px-5 py-12 md:px-8">
-          <div className="mb-7">
+
+        /* =====================================================
+           SINGLE CATEGORY VIEW
+        ===================================================== */
+        <section
+          data-aos="fade-up"
+          className="mx-auto max-w-7xl px-5 py-12 md:px-8"
+        >
+
+          <div
+            data-aos="fade-right"
+            className="mb-7"
+          >
+
             <button
               onClick={() => setActiveCategory("All")}
               className="mb-4 inline-flex items-center gap-2 text-sm font-bold text-[#f45112] hover:underline"
             >
               ← Back to all categories
             </button>
-            <h2 className="text-3xl font-black">{activeCategory}</h2>
+
+            <h2 className="text-3xl font-black">
+              {activeCategory}
+            </h2>
+
             <p className="mt-1 text-sm text-gray-500">
               {filteredItems.length} items available
             </p>
+
           </div>
 
           {filteredItems.length === 0 ? (
-            <div className="rounded-3xl border border-orange-100 bg-white p-16 text-center">
+
+            <div
+              data-aos="zoom-in"
+              className="rounded-3xl border border-orange-100 bg-white p-16 text-center"
+            >
               <div className="text-5xl">🍽️</div>
-              <h3 className="mt-4 text-xl font-bold">No items found</h3>
-              <p className="mt-2 text-gray-500">This category is empty.</p>
+
+              <h3 className="mt-4 text-xl font-bold">
+                No items found
+              </h3>
+
+              <p className="mt-2 text-gray-500">
+                This category is empty.
+              </p>
             </div>
+
           ) : (
-            <FoodGrid items={filteredItems} />
+
+            <div data-aos="fade-up">
+              <FoodGrid items={filteredItems} />
+            </div>
+
           )}
+
         </section>
       )}
 
       {/* =========================================================
           SPECIAL OFFERS
       ========================================================= */}
-      <section className="border-t border-orange-100 bg-[#fffaf3] py-10 md:py-10">
+      <section
+        data-aos="fade-up"
+        className="border-t border-orange-100 bg-[#fffaf3] py-10 md:py-10"
+      >
+
         <div className="mx-auto max-w-7xl px-5 md:px-8">
 
           {/* HEADING */}
-          <div className="mx-auto mb-10 max-w-2xl text-center">
+          <div
+            data-aos="fade-up"
+            className="mx-auto mb-10 max-w-2xl text-center"
+          >
+
             <span className="inline-flex rounded-full border border-orange-200 bg-white px-4 py-2 text-xs font-bold tracking-[0.18em] text-[#f45112] shadow-sm">
               ✨ SPECIAL OFFERS
             </span>
 
             <h2 className="mt-4 text-3xl font-black tracking-tight text-[#35170e] md:text-5xl">
               Great Food.{" "}
-              <span className="text-[#f45112]">Better Deals.</span>
+              <span className="text-[#f45112]">
+                Better Deals.
+              </span>
             </h2>
 
             <p className="mt-3 text-sm leading-6 text-[#6b625d] md:text-base">
               Grab your favourite pizza and enjoy our special offers at
               Chai Chowk Cafe.
             </p>
+
           </div>
 
-          {/* =====================================================
-              OFFER CARDS
-          ===================================================== */}
+          {/* OFFER CARDS */}
           <div className="grid gap-6 md:grid-cols-2">
 
-            {/* ================= EVERYDAY OFFER ================= */}
-            <div className="group relative overflow-hidden rounded-[28px] border border-orange-300 bg-orange-100 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:p-7">
+            {/* EVERYDAY OFFER */}
+            <div
+              data-aos="fade-right"
+              data-aos-delay="100"
+              className="group relative overflow-hidden rounded-[28px] border border-orange-300 bg-orange-100 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:p-7"
+            >
 
               <div className="relative">
 
-                {/* TOP */}
                 <div className="flex items-center justify-between gap-3">
+
                   <span className="rounded-full bg-[#35170e] px-4 py-2 text-[11px] font-black tracking-wider text-white">
                     EVERYDAY OFFER
                   </span>
@@ -1034,13 +1196,13 @@ export default function MenuPage() {
                   <span className="rounded-full bg-[#f45112] px-3 py-2 text-[10px] font-black text-white shadow-md">
                     BUY 1 GET 1
                   </span>
+
                 </div>
 
-                {/* CONTENT */}
                 <div className="mt-7 flex items-center gap-5">
 
-                  {/* REAL PIZZA IMAGE */}
                   <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-2xl bg-orange-50">
+
                     <Image
                       src="/margherita-pizza.png"
                       alt="Pizza offer"
@@ -1048,9 +1210,11 @@ export default function MenuPage() {
                       className="object-contain p-2 transition duration-500 group-hover:scale-110"
                       sizes="112px"
                     />
+
                   </div>
 
                   <div>
+
                     <h3 className="text-xl font-black leading-tight text-[#35170e] md:text-2xl">
                       Buy One Large Pizza
                     </h3>
@@ -1064,12 +1228,13 @@ export default function MenuPage() {
                       </span>{" "}
                       absolutely free.
                     </p>
+
                   </div>
 
                 </div>
 
-                {/* BOTTOM */}
                 <div className="mt-7 flex items-center justify-between rounded-2xl bg-[#fff7ed] px-4 py-3">
+
                   <span className="text-[11px] font-bold uppercase tracking-wider text-gray-500">
                     Offer Available
                   </span>
@@ -1077,20 +1242,23 @@ export default function MenuPage() {
                   <span className="text-sm font-black text-[#35170e]">
                     Every Day
                   </span>
+
                 </div>
 
               </div>
             </div>
 
-
-            {/* ================= WEDNESDAY & SUNDAY ================= */}
-            <div className="group relative overflow-hidden rounded-[28px] bg-[#6b3828] p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:p-5">
-
+            {/* WEDNESDAY & SUNDAY */}
+            <div
+              data-aos="fade-left"
+              data-aos-delay="200"
+              className="group relative overflow-hidden rounded-[28px] bg-[#6b3828] p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:p-5"
+            >
 
               <div className="relative">
 
-                {/* TOP */}
                 <div className="flex items-center justify-between gap-3">
+
                   <span className="rounded-full bg-white px-4 py-2 text-[11px] font-black tracking-wider text-[#35170e]">
                     WEDNESDAY & SUNDAY
                   </span>
@@ -1098,13 +1266,13 @@ export default function MenuPage() {
                   <span className="rounded-full bg-[#f45112] px-3 py-2 text-[10px] font-black text-white shadow-md">
                     BUY 1 GET 1
                   </span>
+
                 </div>
 
-                {/* CONTENT */}
                 <div className="mt-7 flex items-center gap-5">
 
-                  {/* REAL PIZZA IMAGE */}
                   <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-2xl bg-white/10">
+
                     <Image
                       src="/margherita-pizza.png"
                       alt="Medium pizza offer"
@@ -1112,9 +1280,11 @@ export default function MenuPage() {
                       className="object-contain p-2 transition duration-500 group-hover:scale-110"
                       sizes="112px"
                     />
+
                   </div>
 
                   <div>
+
                     <h3 className="text-xl font-black leading-tight text-white md:text-2xl">
                       Buy One Medium Pizza
                     </h3>
@@ -1128,12 +1298,13 @@ export default function MenuPage() {
                       </span>{" "}
                       absolutely free.
                     </p>
+
                   </div>
 
                 </div>
 
-                {/* BOTTOM */}
                 <div className="mt-7 flex items-center justify-between rounded-2xl bg-white/10 px-4 py-3">
+
                   <span className="text-[11px] font-bold uppercase tracking-wider text-white/50">
                     Special Days
                   </span>
@@ -1141,6 +1312,7 @@ export default function MenuPage() {
                   <span className="text-sm font-black text-orange-300">
                     Wednesday & Sunday
                   </span>
+
                 </div>
 
               </div>
@@ -1148,89 +1320,139 @@ export default function MenuPage() {
 
           </div>
 
-
           {/* =====================================================
               CAFE EXPERIENCE
           ===================================================== */}
-          <div className="mt-6 overflow-hidden rounded-[32px] border border-orange-100 bg-orange-100 shadow-sm">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="150"
+            className="mt-6 overflow-hidden rounded-[32px] border border-orange-100 bg-orange-100 shadow-sm"
+          >
 
             <div className="grid md:grid-cols-2">
 
               {/* LEFT */}
-              <div className="p-4 md:p-6">
+              <div
+                data-aos="fade-right"
+                className="p-4 md:p-6"
+              >
 
-                <span className="inline-flex rounded-full bg-orange-50 px-4 py-2 text-xs font-black tracking-[0.15em] text-[#f45112]">
+                <span
+                  data-aos="fade-down"
+                  className="inline-flex rounded-full bg-orange-50 px-4 py-2 text-xs font-black tracking-[0.15em] text-[#f45112]"
+                >
                   CHAI CHOWK CAFE
                 </span>
 
-                <h2 className="mt-5 text-3xl font-black leading-tight text-[#35170e] md:text-4xl">
+                <h2
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  className="mt-5 text-3xl font-black leading-tight text-[#35170e] md:text-4xl"
+                >
                   More Than Just{" "}
-                  <span className="text-[#f45112]">Chai</span>
+                  <span className="text-[#f45112]">
+                    Chai
+                  </span>
                 </h2>
 
-                <p className="mt-4 text-sm leading-7 text-gray-600 md:text-base">
-                  A perfect place for delicious food, chai, celebrations and
-                  memorable moments with your loved ones.
+                <p
+                  data-aos="fade-up"
+                  data-aos-delay="150"
+                  className="mt-4 text-sm leading-7 text-gray-600 md:text-base"
+                >
+                  A perfect place for delicious food, chai,
+                  celebrations and memorable moments with your
+                  loved ones.
                 </p>
 
                 {/* FEATURES */}
                 <div className="mt-8 grid grid-cols-2 gap-3">
 
-                  <div className=" relative overflow-hidden rounded-2xl border border-orange-300 bg-[#fffaf3] p-4">
-                    <div className="pr-16"> </div>
-                    <div className="text-2xl">🎉</div>
+                  {/* PARTY HALL */}
+                  <div
+                    data-aos="zoom-in"
+                    data-aos-delay="100"
+                    className="relative overflow-hidden rounded-2xl border border-orange-300 bg-[#fffaf3] p-4"
+                  >
+                    <div className="text-2xl">
+                      🎉
+                    </div>
+
                     <h3 className="mt-2 text-sm font-black text-[#35170e]">
                       Party Hall
                     </h3>
+
                     <p className="mt-1 text-[11px] leading-4 text-gray-500">
                       Perfect for celebrations
                     </p>
                   </div>
 
-                  <div className="absolute right-2 top-1/2 h-16 w-16 -translate-y-1/2 overflow-hidden rounded-xl">
-                  </div>
+                  {/* BIRTHDAY */}
+                  <div
+                    data-aos="zoom-in"
+                    data-aos-delay="200"
+                    className="rounded-2xl border border-orange-300 bg-[#fffaf3] p-4"
+                  >
+                    <div className="text-2xl">
+                      🎂
+                    </div>
 
-                  <div className="rounded-2xl border border-orange-300 bg-[#fffaf3] p-4">
-                    <div className="text-2xl">🎂</div>
                     <h3 className="mt-2 text-sm font-black text-[#35170e]">
                       Birthday Party
                     </h3>
+
                     <p className="mt-1 text-[11px] leading-4 text-gray-500">
                       Celebrate your special day
                     </p>
                   </div>
 
-                  <div className="rounded-2xl border border-orange-300 bg-[#fffaf3] p-4">
-                    <div className="text-2xl">🏢</div>
+                  {/* OFFICE EVENTS */}
+                  <div
+                    data-aos="zoom-in"
+                    data-aos-delay="300"
+                    className="rounded-2xl border border-orange-300 bg-[#fffaf3] p-4"
+                  >
+                    <div className="text-2xl">
+                      🏢
+                    </div>
+
                     <h3 className="mt-2 text-sm font-black text-[#35170e]">
                       Office Events
                     </h3>
+
                     <p className="mt-1 text-[11px] leading-4 text-gray-500">
                       Small events & gatherings
                     </p>
                   </div>
 
-                  <div className="rounded-2xl border border-orange-300 bg-[#fffaf3] p-4">
-                    <div className="text-2xl">🛵</div>
+                  {/* FREE DELIVERY */}
+                  <div
+                    data-aos="zoom-in"
+                    data-aos-delay="400"
+                    className="rounded-2xl border border-orange-300 bg-[#fffaf3] p-4"
+                  >
+                    <div className="text-2xl">
+                      🛵
+                    </div>
+
                     <h3 className="mt-2 text-sm font-black text-[#35170e]">
                       Free Delivery
                     </h3>
+
                     <p className="mt-1 text-[11px] leading-4 text-gray-500">
                       Selected orders
                     </p>
                   </div>
-                  <div> 
 
-                  </div>
                 </div>
 
-         
-              
               </div>
 
-
               {/* RIGHT IMAGE */}
-              <div className="relative min-h-[360px] overflow-hidden bg-[#6b3828] ">
+              <div
+                data-aos="fade-left"
+                className="relative min-h-[360px] overflow-hidden bg-[#6b3828]"
+              >
 
                 <Image
                   src="/mixup.png"
@@ -1240,7 +1462,6 @@ export default function MenuPage() {
                   sizes="(max-width: 768px) 100vw, 45vw"
                 />
 
-                {/* Soft Overlay */}
                 <div className="absolute inset-0 bg-black/10" />
 
               </div>
@@ -1255,25 +1476,39 @@ export default function MenuPage() {
   );
 }
 
-/* FOOD GRID */
+/* =========================================================
+   FOOD GRID
+========================================================= */
 
 function FoodGrid({ items }: { items: FoodItem[] }) {
   return (
     <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-      {items.map((item) => (
-        <FoodCard key={item.name} item={item} />
+
+      {items.map((item, index) => (
+        <div
+          key={item.name}
+          data-aos="zoom-in"
+          data-aos-delay={index * 80}
+        >
+          <FoodCard item={item} />
+        </div>
       ))}
+
     </div>
   );
 }
 
-/* FOOD CARD */
+/* =========================================================
+   FOOD CARD
+========================================================= */
 
 function FoodCard({ item }: { item: FoodItem }) {
   return (
     <article className="group overflow-hidden rounded-2xl border border-orange-100 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+
       {/* IMAGE */}
       <div className="relative aspect-square overflow-hidden bg-[#fff4e5]">
+
         <Image
           src={item.image}
           alt={item.name}
@@ -1284,13 +1519,21 @@ function FoodCard({ item }: { item: FoodItem }) {
 
         {/* RATING */}
         <div className="absolute right-2 top-2 flex items-center gap-1 rounded-full bg-white/95 px-2 py-1 text-xs font-bold shadow">
-          <Star size={12} className="fill-orange-400 text-orange-400" />
+
+          <Star
+            size={12}
+            className="fill-orange-400 text-orange-400"
+          />
+
           4.8
+
         </div>
+
       </div>
 
       {/* CONTENT */}
       <div className="p-3.5">
+
         <h3 className="line-clamp-1 text-sm font-black md:text-base">
           {item.name}
         </h3>
@@ -1302,12 +1545,15 @@ function FoodCard({ item }: { item: FoodItem }) {
         )}
 
         <div className="mt-3 flex items-center justify-between gap-2">
+
           <span className="text-sm font-black text-[#f45112]">
             {item.price}
           </span>
 
         </div>
+
       </div>
+
     </article>
   );
 }
